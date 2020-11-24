@@ -41,7 +41,7 @@ The autoML pipeline is very similar to the Scikit-learn pipeline described above
 - The variables and target dataframes are merged prior to the autoML process.
 - The joined dataset is used as input in the autoML configuration and the autoML run is processed locally.
 
-The best model selected by autoML was a voting ensemble (~91.8% accurate). The model selected used a slight amount of l1 regularization, meaning that some penalty was placed the number of non-zero model coefficients.
+The best model selected by autoML was a voting ensemble (~91.8% accurate). The Voting Ensemble model selected used a slight amount of l1 regularization, meaning that some penalty was placed the number of non-zero model coefficients. Additionally, the voting method was soft voting (as compared to hard), where all models' class probabilities are averaged and the highest probablility selected to make a prediction. Although the learning rate scheduling for gradient descent is specified as 'invscaling' (i.e. inverse scaling), the scaling factor power is 0 indicating that the learning rate is constant in this case.
 
 ## Pipeline comparison
 The two models performed very similarly in terms of accuracy, with the hyperdive model achieving 91.4% accuracy and the autoML model achieving 91.8% accuracy. The difference in accuracy could come down to slight variations in the cross-validation process. Architecturally, the models are quite different. I'm not entirely certain what a "Voting Ensemble" is, but I assume it is making predictions based on the output of a variety of models, similar to other ensemble methods. 
