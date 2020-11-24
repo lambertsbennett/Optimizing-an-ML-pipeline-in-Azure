@@ -34,10 +34,17 @@ I selected the BanditPolicy stopping policy because it allows one to select a cu
 The best model parameters here were a C value of 7.22 and a max_iter value of 97. The model's accuracy was ~91.4%.
 
 ## AutoML
+The autoML pipeline is very similar to the Scikit-learn pipeline described above with several notable differences:
+- The data are retrieved from the provided URL.
+- The data are cleaned using the same process as described above. 
+- The data are **not** split into train and test sets.
+- The variables and target dataframes are merged prior to the autoML process.
+- The joined dataset is used as input in the autoML configuration and the autoML run is processed locally.
+
 The best model selected by autoML was a voting ensemble (~91.8% accurate). The model selected used a slight amount of l1 regularization, meaning that some penalty was placed the number of non-zero model coefficients.
 
 ## Pipeline comparison
-The two models performed very similarly in terms of accuracy. The difference in accuracy could come down to slight variations in the cross-validation process. Architecturally, the models are quite different. I'm not entirely certain what a "Voting Ensemble" is, but I assume it is making predictions based on the output of a variety of models, similar to other ensemble methods. 
+The two models performed very similarly in terms of accuracy, with the hyperdive model achieving 91.4% accuracy and the autoML model achieving 91.8% accuracy. The difference in accuracy could come down to slight variations in the cross-validation process. Architecturally, the models are quite different. I'm not entirely certain what a "Voting Ensemble" is, but I assume it is making predictions based on the output of a variety of models, similar to other ensemble methods. 
 
 ## Future work
 In the future it might be helpful to explore more feature engineering steps prior to training. Also, many of the AutoML runs use a scaler prior to model training and evaluation. The encoded data does not really benefit from this scaling, so selectively scaling continuous variables instead of all, might be helpful. Also, running AutoML for much longer would likely find better models in this case.
