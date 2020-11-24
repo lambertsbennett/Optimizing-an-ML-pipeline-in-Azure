@@ -26,7 +26,7 @@ The classification method used here is logistic regression. Logistic regression 
 Azure's Hyperdrive service was used for hyperparameter tuning with the following key elements:
 
 #### Parameter sampling
-I decided to use random parameter sampling. I have very little background in using logistic regression and figured that choosing a broad parameter space and using random sampling would be a way to hopefully get a performant model.
+I decided to use random parameter sampling. Compared to the other techniques available, random sampling does not require pre-specified values (like grid search) and can make full use of all available nodes (unlike bayesian parameter sampling). Random parameter searching is preferable to gridsearch also in that it is highly unlikely that the specified values in gridsearch are optimal, while there is a chance that the ones obtained randomly are closer to ideal values. Combined with the fact that I have very little background in using logistic regression random parameter sampling enables a much more broad search over the parameter space and with it's capabilities to make use of concurrency would outperform bayesian sampling for large jobs.
 
 #### Early stopping policy
 I selected the BanditPolicy stopping policy because it allows one to select a cut-off at which models reporting metrics worse than the current best model are terminated. This allows a relatively intuitive method to screen models, only retaining those with similar or better performance. This policy offers a little more flexibility than truncation and median stopping.
