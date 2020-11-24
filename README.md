@@ -9,7 +9,7 @@ This model is then compared to an Azure AutoML run.
 This dataset contains data about individuals applying for bank loans. The task we set out to accomplish here is to develop a model that,
 based on the information provided about each applicant, predicts whether they will receive a loan.
 
-**In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
+The best performing model was found to be a voting ensemble with 91.8% accuracy. However, many models were of comparable accuracy.
 
 ## Scikit-learn Pipeline
 The Scikit-learn pipeline obtains the provided data from the provided URL. Following data download, a number of data cleaning steps are carried out including:
