@@ -7,7 +7,7 @@ This model is then compared to an Azure AutoML run.
 
 ## Summary
 This dataset contains data about individuals applying for bank loans. The task we set out to accomplish here is to develop a model that,
-based on the information provided about each applicant, predicts whether they will receive a loan.
+based on the information provided about each individual, predicts whether they will subscribe to a service.
 
 The best performing model was found to be a voting ensemble with 91.8% accuracy. However, many models were of comparable accuracy.
 
